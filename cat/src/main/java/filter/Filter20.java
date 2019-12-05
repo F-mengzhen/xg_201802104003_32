@@ -32,15 +32,18 @@ public class Filter20 implements Filter {
 
     String path=request.getRequestURI();
     if (!exclude.contains(path)){
-
+//访问权限验证
       HttpSession session=request.getSession(false);
       JSONObject message=new JSONObject();
       if (session==null||session.getAttribute("currentUser")==null){
         message.put("message","您没有登录，请登录");
+        //响应message到前端
         res.getWriter().println(message);
         return;
     }
-    } chain.doFilter(req, res);
+    }
+    //执行其他过滤器，若过滤器已执行完毕，则执行原请求
+    chain.doFilter(req, res);
     System.out.println("Filter20结束");
 
   }

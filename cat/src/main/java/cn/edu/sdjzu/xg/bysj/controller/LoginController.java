@@ -29,6 +29,7 @@ public class LoginController extends HttpServlet {
           session.setMaxInactiveInterval(10*60);
           session.setAttribute("currentUser",loggeduser);
           response.getWriter().println(message);
+          //重定向到索引页
           return;
         }else {
           message.put("message","用户名或密码错误");
