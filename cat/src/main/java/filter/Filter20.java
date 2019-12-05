@@ -21,10 +21,10 @@ public class Filter20 implements Filter {
 
   @Override
   public void doFilter(ServletRequest req, ServletResponse res, FilterChain chain) throws IOException, ServletException {
-    req.setCharacterEncoding("UTF-8");
+    //req.setCharacterEncoding("UTF-8");
 
   //设置响应编码
-    res.setContentType("text/html;charset=UTF-8");
+    //res.setContentType("text/html;charset=UTF-8");
 
     System.out.println("Filter20开始");
     exclude.add("/login.ctl");
